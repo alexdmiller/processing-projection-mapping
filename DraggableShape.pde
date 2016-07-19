@@ -1,5 +1,9 @@
 class DraggableShape {
   final float HANDLE_SIZE = 15;
+  public static final int TOP_LEFT = 0;
+  public static final int TOP_RIGHT = 1;
+  public static final int BOTTOM_RIGHT = 2;
+  public static final int BOTTOM_LEFT = 3;
   
   private PShape pShape;
   private int selectedVertex = -1;
@@ -12,6 +16,10 @@ class DraggableShape {
     pShape.vertex(x + w, y + h);
     pShape.vertex(x, y + h);
     pShape.endShape(CLOSE);
+  }
+  
+  public PVector get(int corner) {
+    return pShape.getVertex(corner);
   }
   
   public DraggableShape() {
